@@ -42,4 +42,7 @@ public interface ArticleCategorieDao {
     @Delete
     void delete(List<ArticleCategorie> articlecategories);
 
+    @Query("SELECT * FROM ArticleCategorie WHERE nom Like (:nom)")
+    List<ArticleCategorie> findByName(String nom);
+
 }

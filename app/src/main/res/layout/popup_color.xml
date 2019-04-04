@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/textZeroBleu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textColor"
+            android:layout_width="300dp"
+            android:layout_height="88dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/text_voici_la_couleur_du_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textRouge"
+            android:layout_width="80dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="20dp"
+            android:text="@string/text_rouge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textColor" />
+
+        <TextView
+            android:id="@+id/textVert"
+            android:layout_width="80dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="20dp"
+            android:text="@string/text_vert"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textRouge" />
+
+        <TextView
+            android:id="@+id/textBleu"
+            android:layout_width="80dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="20dp"
+            android:text="@string/text_bleu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textVert" />
+
+        <SeekBar
+            android:id="@+id/redBar"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/text255Red"
+            app:layout_constraintStart_toEndOf="@+id/textZeroRed"
+            app:layout_constraintTop_toBottomOf="@+id/textColor" />
+
+        <TextView
+            android:id="@+id/textZeroRed"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="10dp"
+            android:text="@string/text_value_0"
+            app:layout_constraintStart_toEndOf="@+id/textRouge"
+            app:layout_constraintTop_toBottomOf="@+id/textColor" />
+
+        <TextView
+            android:id="@+id/textZeroVert"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="10dp"
+            android:text="@string/text_value_0"
+            app:layout_constraintStart_toEndOf="@+id/textVert"
+            app:layout_constraintTop_toBottomOf="@+id/textZeroRed" />
+
+        <TextView
+            android:id="@+id/textZerobleu"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="10dp"
+            android:text="@string/text_value_0"
+            app:layout_constraintStart_toEndOf="@+id/textBleu"
+            app:layout_constraintTop_toBottomOf="@+id/textZeroVert" />
+
+        <SeekBar
+            android:id="@+id/greenBar"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            app:layout_constraintEnd_toStartOf="@+id/text255Bleu"
+            app:layout_constraintStart_toEndOf="@+id/textZeroVert"
+            app:layout_constraintTop_toBottomOf="@+id/redBar" />
+
+        <SeekBar
+            android:id="@+id/blueBar"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/text255Vert"
+            app:layout_constraintStart_toEndOf="@+id/textZerobleu"
+            app:layout_constraintTop_toBottomOf="@+id/greenBar" />
+
+        <TextView
+            android:id="@+id/text255Vert"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="10dp"
+            android:text="@string/text_value_255"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text255Bleu" />
+
+        <TextView
+            android:id="@+id/text255Red"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="10dp"
+            android:text="@string/text_value_255"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textColor" />
+
+        <TextView
+            android:id="@+id/text255Bleu"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="10dp"
+            android:text="@string/text_value_255"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text255Red" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -8,14 +8,14 @@ import android.content.Context;
 import merejy.fr.menuachat3.Data.Dao.ArticleCategorieDao;
 import merejy.fr.menuachat3.Data.Entity.ArticleCategorie;
 
-@Database(entities = {ArticleCategorie.class}, version = 1 , exportSchema = false)
+@Database(entities = {ArticleCategorie.class}, version = 3 , exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase ourInstance = null;
     private static final String Database_name = "MenuAchat3";
 
     public static AppDatabase getInstance(Context context) {
         if (ourInstance == null) {
-            ourInstance = Room.databaseBuilder(context, AppDatabase.class, Database_name).build();
+            ourInstance = Room.databaseBuilder(context, AppDatabase.class, Database_name).fallbackToDestructiveMigration().build();
         }
         return ourInstance;
     }

@@ -1,3 +1,24 @@
 <resources>
-    <string name="app_name">MenuAchat3</string>
+    <string name="app_name">MenuAchat</string>
+    <string name="title_activity_create_article">CreateArticle</string>
+
+    <string name="button_comfirmer">Comfirmer</string>
+    <string name="button_annuler">Annuler</string>
+
+    <string name="erreur_champ_non_remplis">Un champ n\'est pas rempli</string>
+    <string name="erreur_nom_deja_pris"> est déjà pris</string>
+
+    <string name="text_nom">Nom</string>
+    <string name="text_couleur">Couleur</string>
+    <string name="text_entrezCouleurIci">Entrez la couleur ici</string>
+    <string name="text_bleu">Bleu</string>
+    <string name="text_rouge">Rouge</string>
+    <string name="text_vert">Vert</string>
+    <string name="text_value_0">0</string>
+    <string name="text_value_255">255</string>
+    <string name="text_voici_la_couleur_du_text">Voici la couleur du texte</string>
+    <string name="text_categorie_rajout_comfirmation">Votre catégorie a été rajoutée</string>
+
+    <string name="title_addCategorieArticle">Ajouter une catégorie d\'article</string>
+
 </resources>

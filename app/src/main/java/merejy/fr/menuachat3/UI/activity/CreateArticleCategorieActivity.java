@@ -1,5 +1,6 @@
 package merejy.fr.menuachat3.UI.activity;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -13,6 +14,7 @@ import merejy.fr.menuachat3.Data.Dao.ArticleCategorieDao;
 import merejy.fr.menuachat3.Data.DataTask.ArticleCategorie_CreateTask;
 import merejy.fr.menuachat3.Data.Entity.ArticleCategorie;
 import merejy.fr.menuachat3.Kernel.ColorManager;
+import merejy.fr.menuachat3.Kernel.MyConstante;
 import merejy.fr.menuachat3.R;
 import merejy.fr.menuachat3.UI.Interface.Cancellable;
 import merejy.fr.menuachat3.UI.Interface.Comfirmable;
@@ -25,6 +27,9 @@ import merejy.fr.menuachat3.databinding.ActivityCreateArticleCategorieBinding;
 
 
 public class CreateArticleCategorieActivity extends AppCompatActivity implements Colorable,Cancellable,Comfirmable{
+
+    public final static String NEW_CAT = "new cat";
+    public final static String NEW_COLOR_CAT = "new color cat";
 
     private ActivityCreateArticleCategorieBinding ui;
     private int colorCategorie = Color.WHITE;
@@ -55,6 +60,8 @@ public class CreateArticleCategorieActivity extends AppCompatActivity implements
 
     @Override
     public void cancel() {
+        Intent resultIntent = new Intent();
+        setResult(MyConstante.RESULT_CANCEL, resultIntent);
         this.finish();
     }
 
@@ -64,6 +71,7 @@ public class CreateArticleCategorieActivity extends AppCompatActivity implements
         if(!nomCat.isEmpty()){
             ArticleCategorie_CreateTask createTask = new ArticleCategorie_CreateTask(this);
             createTask.execute(new ArticleCategorie(nomCat,colorCategorie));
+            //finish dans la task
         }
         else{
             //champ vide

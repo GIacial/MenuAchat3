@@ -18,7 +18,17 @@
     <string name="text_value_255">255</string>
     <string name="text_voici_la_couleur_du_text">Voici la couleur du texte</string>
     <string name="text_categorie_rajout_comfirmation">Votre catégorie a été rajoutée</string>
+    <string name="text_article_rajout_comfirmation">Votre Article a été rajoutée</string>
+    <string name="textCategorie">Catégorie</string>
+    <string name="text_entrez_nom_ici">Entrez le nom ici</string>
+    <string name="text_plus">+</string>
+    <string name="text_poidsFixe">Poids Fixe</string>
+    <string name="text_codeBar">CodeBar</string>
 
     <string name="title_addCategorieArticle">Ajouter une catégorie d\'article</string>
+    <string name="title_addArticle">Ajouter un article</string>
+
+    <string name="debug_no_activity_add_cat_article">Impossible de trouver activité pour créé une categorie</string>
+    <string name="debug_unknow_activity">Activité inconnu</string>
 
 </resources>

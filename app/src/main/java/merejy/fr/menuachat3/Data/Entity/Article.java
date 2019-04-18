@@ -3,13 +3,16 @@ package merejy.fr.menuachat3.Data.Entity;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 
 @Entity(foreignKeys = @ForeignKey(entity = ArticleCategorie.class,
         parentColumns = "id",
-        childColumns = "cat_id"))
+        childColumns = "cat_id")
+        ,indices = {@Index(name = "ArticleIdIndex",value = "id", unique = true),
+        @Index(name = "ArticleCatIndex",value = {"cat_id"})})
 public class Article {
 
     @NonNull

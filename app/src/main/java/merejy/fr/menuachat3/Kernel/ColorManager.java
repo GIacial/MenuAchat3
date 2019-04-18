@@ -13,4 +13,5 @@ public class ColorManager {
         }
         return Color.rgb(res,res,res) ;
     }
+
 }

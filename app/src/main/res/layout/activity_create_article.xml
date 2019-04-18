@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="76dp"
+        tools:context=".UI.activity.CreateArticleCategorieActivity">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="351dp"
+            android:layout_height="47dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/title_addArticle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="174dp"
+            android:layout_height="79dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/button_annuler"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/comfirmeButton"
+            android:layout_width="185dp"
+            android:layout_height="78dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/button_comfirmer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cancelButton"
+            app:layout_constraintTop_toTopOf="@+id/cancelButton" />
+
+        <TextView
+            android:id="@+id/textnom"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/text_nom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <EditText
+            android:id="@+id/editNom"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="@string/text_entrez_nom_ici"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.285"
+            app:layout_constraintStart_toEndOf="@+id/textnom"
+            app:layout_constraintTop_toTopOf="@+id/textnom" />
+
+        <TextView
+            android:id="@+id/textCat"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="36dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/textCategorie"
+            app:layout_constraintStart_toStartOf="@+id/textnom"
+            app:layout_constraintTop_toBottomOf="@+id/textnom" />
+
+        <Spinner
+            android:id="@+id/editCat"
+            android:layout_width="214dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/buttonAddCat"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/editNom"
+            app:layout_constraintTop_toTopOf="@+id/textCat" />
+
+        <TextView
+            android:id="@+id/textPoidsFixe"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/text_poidsFixe"
+            app:layout_constraintStart_toStartOf="@+id/textCat"
+            app:layout_constraintTop_toBottomOf="@+id/textCat" />
+
+        <CheckBox
+            android:id="@+id/editPoidsfixe"
+            android:layout_width="243dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textPoidsFixe"
+            app:layout_constraintTop_toTopOf="@+id/textPoidsFixe" />
+
+        <TextView
+            android:id="@+id/textCodeBar"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/text_codeBar"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/cancelButton"
+            app:layout_constraintStart_toStartOf="@+id/textPoidsFixe"
+            app:layout_constraintTop_toBottomOf="@+id/textPoidsFixe" />
+
+        <Button
+            android:id="@+id/buttonAddCat"
+            android:layout_width="32dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/text_plus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editCat" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

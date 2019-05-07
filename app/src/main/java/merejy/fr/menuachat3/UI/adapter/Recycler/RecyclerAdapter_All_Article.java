@@ -93,6 +93,9 @@ public class RecyclerAdapter_All_Article extends RecyclerView.Adapter<RecyclerAd
         holder.ui.catName.setText(categorie.toString());
 
         holder.itemView.setBackgroundColor(categorie.couleur);
+        if(onClickFactory != null){
+            holder.itemView.setOnClickListener(onClickFactory.createListener(article,activity));
+        }
         holder.ui.name.setTextColor(ColorManager.getTextColorForCategorieColorInst(categorie.couleur));
         holder.ui.catName.setTextColor(ColorManager.getTextColorForCategorieColorInst(categorie.couleur));
 

@@ -4,10 +4,12 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Transaction;
 import android.arch.persistence.room.Update;
 
 import java.util.List;
 
+import merejy.fr.menuachat3.Data.DataObject.ArticleWithCategorie;
 import merejy.fr.menuachat3.Data.Entity.Article;
 
 
@@ -17,6 +19,10 @@ public interface ArticleDao {
     @Query("SELECT * FROM Article")
     List<Article> getAll();
 
+    @Query("SELECT * FROM Article")
+    @Transaction
+    List<ArticleWithCategorie> getAllWithCategorie();
+
     @Query("SELECT * FROM Article WHERE id IN (:articleIds)")
     List<Article> loadAllByIds(int[] articleIds);
 
@@ -24,7 +30,7 @@ public interface ArticleDao {
     Article loadById(int articleId);
 
     @Query("SELECT * FROM ARTICLE WHERE nom = (:articleName)")
-    List<Article> findByName(String articleName);
+    List<ArticleWithCategorie> findByName(String articleName);
 
 
     @Insert

@@ -14,11 +14,19 @@
             android:name=".UI.activity.CreateArticleCategorieActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
+
         </activity>
 
-        <activity android:name=".UI.activity.CreateArticleActivity">
+        <activity android:name=".UI.activity.CreateArticleActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".UI.activity.SelectArticleActivity"
+
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

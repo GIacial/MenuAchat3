@@ -27,8 +27,11 @@
 
     <string name="title_addCategorieArticle">Ajouter une catégorie d\'article</string>
     <string name="title_addArticle">Ajouter un article</string>
+    <string name="title_takeArticle">Sélectionner des articles</string>
 
     <string name="debug_no_activity_add_cat_article">Impossible de trouver activité pour créé une categorie</string>
+    <string name="debug_todo">Pas encore fait ^^</string>
+    <string name="debug_no_activity_add_article">Impossible de trouver activité pour créé un article</string>
     <string name="debug_unknow_activity">Activité inconnu</string>
 
 </resources>

@@ -10,6 +10,7 @@ public class MyConstante {
     public final static int RESULT_CANCEL = -2;
 
     public final static int REQUEST_ADD_CAT_ARTICLE = 1;
+    public final static int REQUEST_ADD_ARTICLE = 2;
 
     private MyConstante(){
 

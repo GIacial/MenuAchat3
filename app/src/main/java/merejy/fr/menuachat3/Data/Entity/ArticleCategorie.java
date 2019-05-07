@@ -1,6 +1,7 @@
 package merejy.fr.menuachat3.Data.Entity;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.ColumnInfo;
@@ -12,7 +13,7 @@ import android.support.annotation.NonNull;
 public class ArticleCategorie {
 
     @NonNull
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = true )
     public int id;
 
     @ColumnInfo(name = "nom")
@@ -27,6 +28,7 @@ public class ArticleCategorie {
         this.nom = nom;
         this.couleur = couleur;
     }
+
 
     @Override
     public String toString() {

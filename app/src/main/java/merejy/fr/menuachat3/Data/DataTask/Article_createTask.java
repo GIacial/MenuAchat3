@@ -3,6 +3,7 @@ package merejy.fr.menuachat3.Data.DataTask;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import merejy.fr.menuachat3.Data.Entity.Article;
 import merejy.fr.menuachat3.Data.Entity.ArticleCategorie;
 import merejy.fr.menuachat3.Kernel.MyConstante;
 import merejy.fr.menuachat3.R;
+import merejy.fr.menuachat3.UI.activity.CreateArticleActivity;
 import merejy.fr.menuachat3.UI.activity.CreateArticleCategorieActivity;
 
 public class Article_createTask extends AsyncTask<Article,String,Boolean> {
@@ -38,7 +40,7 @@ public class Article_createTask extends AsyncTask<Article,String,Boolean> {
             }
             this.allAddingArticle.add(article);
             if(articleDao.findByName(article.nom).isEmpty()){
-                System.err.println("ok free");
+                Log.d(MyConstante.APP_TAG, " cat_id: "+article.cat_id );
                 articleDao.insertAll(article);
 
             }
@@ -66,12 +68,12 @@ public class Article_createTask extends AsyncTask<Article,String,Boolean> {
         if(ok){
             Toast.makeText(activity,R.string.text_article_rajout_comfirmation,Toast.LENGTH_SHORT).show();
 
-            /*Intent resultIntent = new Intent();
+            //renvoyer les articles crée
+            Intent resultIntent = new Intent();
             for (Article c : allAddingArticle){
-                resultIntent.putExtra(CreateArticleCategorieActivity.NEW_CAT,c.nom);
-                resultIntent.putExtra(CreateArticleCategorieActivity.NEW_COLOR_CAT,c.couleur);
+                resultIntent.putExtra(CreateArticleActivity.ARTICLE_NAME,c.nom);
             }
-            activity.setResult(MyConstante.RESULT_OK, resultIntent);*/
+            activity.setResult(MyConstante.RESULT_OK, resultIntent);
             this.activity.finish();
         }
     }

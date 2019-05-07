@@ -10,9 +10,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import merejy.fr.menuachat3.Data.DataTask.ArticleCategorie_CreateTask;
 import merejy.fr.menuachat3.Data.DataTask.Article_createTask;
-import merejy.fr.menuachat3.Data.DataTask.SpinnerLoadTask_ArticleCategorie;
+import merejy.fr.menuachat3.Data.DataTask.LoadAll_ArticleCategorie;
+import merejy.fr.menuachat3.Data.DataTask.Load_ArticleCategorie_ByName;
 import merejy.fr.menuachat3.Data.Entity.Article;
 import merejy.fr.menuachat3.Data.Entity.ArticleCategorie;
 import merejy.fr.menuachat3.Kernel.MyConstante;
@@ -21,10 +21,12 @@ import merejy.fr.menuachat3.UI.Interface.Cancellable;
 import merejy.fr.menuachat3.UI.Interface.Comfirmable;
 import merejy.fr.menuachat3.UI.Listener.OnClickOnCancel;
 import merejy.fr.menuachat3.UI.Listener.OnClickOnComfirm;
-import merejy.fr.menuachat3.UI.adapter.ArrayAdapter_CategorieArticle;
+import merejy.fr.menuachat3.UI.adapter.Spinner.ArrayAdapter_CategorieArticle;
 import merejy.fr.menuachat3.databinding.ActivityCreateArticleBinding;
 
 public class CreateArticleActivity extends AppCompatActivity implements Comfirmable,Cancellable {
+
+    public static final String ARTICLE_NAME = "article name";
 
    private ActivityCreateArticleBinding ui;
    private ArrayAdapter_CategorieArticle catSpinnerAdapter;
@@ -35,7 +37,7 @@ public class CreateArticleActivity extends AppCompatActivity implements Comfirma
         ui = DataBindingUtil.setContentView(this,R.layout.activity_create_article);
 
         this.catSpinnerAdapter = new ArrayAdapter_CategorieArticle(this,R.layout.support_simple_spinner_dropdown_item,new ArrayList<ArticleCategorie>());
-        SpinnerLoadTask_ArticleCategorie loadTaskSpinner = new SpinnerLoadTask_ArticleCategorie(this,catSpinnerAdapter);
+        LoadAll_ArticleCategorie loadTaskSpinner = new LoadAll_ArticleCategorie(this,catSpinnerAdapter);
         loadTaskSpinner.execute();
 
         ui.editCat.setAdapter(this.catSpinnerAdapter);
@@ -65,11 +67,9 @@ public class CreateArticleActivity extends AppCompatActivity implements Comfirma
                 if (resultCode == MyConstante.RESULT_OK) {
                     // Extract the data returned from the child Activity.
                     String catName = data.getStringExtra(CreateArticleCategorieActivity.NEW_CAT);
-                    int catColor = data.getIntExtra(CreateArticleCategorieActivity.NEW_COLOR_CAT,0);
                     //ajout des info dans le spinner et le selectionné
-                    ArticleCategorie categorie = new ArticleCategorie(catName,catColor);
-                    this.catSpinnerAdapter.add(categorie);
-                    ui.editCat.setSelection(this.catSpinnerAdapter.getPosition(categorie));
+                    Load_ArticleCategorie_ByName loader = new Load_ArticleCategorie_ByName(this,catSpinnerAdapter);
+                    loader.execute(catName);
                 }
                 break;
                 default: Log.d(MyConstante.APP_TAG,getString(R.string.debug_unknow_activity));
@@ -79,7 +79,9 @@ public class CreateArticleActivity extends AppCompatActivity implements Comfirma
 
     @Override
     public void cancel() {
-            this.finish();
+        Intent resultIntent = new Intent();
+        setResult(MyConstante.RESULT_CANCEL, resultIntent);
+        this.finish();
     }
 
     @Override

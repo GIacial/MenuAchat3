@@ -68,7 +68,7 @@ public class ArticleCategorie_CreateTask extends AsyncTask<ArticleCategorie,Stri
             Intent resultIntent = new Intent();
             for (ArticleCategorie c : allAddingCat){
                 resultIntent.putExtra(CreateArticleCategorieActivity.NEW_CAT,c.nom);
-                resultIntent.putExtra(CreateArticleCategorieActivity.NEW_COLOR_CAT,c.couleur);
+                Log.d(MyConstante.APP_TAG,"cat id enregistrement :"+ c.id);
             }
             activity.setResult(MyConstante.RESULT_OK, resultIntent);
             this.activity.finish();

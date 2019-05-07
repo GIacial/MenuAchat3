@@ -21,7 +21,7 @@ public class ColorPopup extends DialogFragment {
     private static String KEY_MODULE = "module";
     private static String FRAGMENT_NAME = "colorPopup";
 
-    static public ColorPopup newInstance(ColorPopupModule module) {
+    private static ColorPopup newInstance(ColorPopupModule module) {
         ColorPopup f = new ColorPopup();
         Bundle args = new Bundle();
         args.putSerializable(KEY_MODULE,module);

@@ -29,7 +29,6 @@ import merejy.fr.menuachat3.databinding.ActivityCreateArticleCategorieBinding;
 public class CreateArticleCategorieActivity extends AppCompatActivity implements Colorable,Cancellable,Comfirmable{
 
     public final static String NEW_CAT = "new cat";
-    public final static String NEW_COLOR_CAT = "new color cat";
 
     private ActivityCreateArticleCategorieBinding ui;
     private int colorCategorie = Color.WHITE;

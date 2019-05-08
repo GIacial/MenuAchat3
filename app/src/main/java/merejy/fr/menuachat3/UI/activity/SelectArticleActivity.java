@@ -9,20 +9,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import merejy.fr.menuachat3.Data.DataTask.LoadAll_Article;
 import merejy.fr.menuachat3.Data.DataTask.Load_Article_ByName;
 import merejy.fr.menuachat3.Data.Entity.Article;
-import merejy.fr.menuachat3.Data.Entity.ArticleCategorie;
 import merejy.fr.menuachat3.Kernel.MyConstante;
 import merejy.fr.menuachat3.R;
 import merejy.fr.menuachat3.UI.Interface.Cancellable;
 import merejy.fr.menuachat3.UI.Interface.Comfirmable;
 import merejy.fr.menuachat3.UI.Interface.Groupe;
-import merejy.fr.menuachat3.UI.Listener.Factory.AddToGroupClickFactory;
+import merejy.fr.menuachat3.UI.Listener.Factory.EntierModuleFactory.AddArticleToGroupNumberPopupModuleFactory;
+import merejy.fr.menuachat3.UI.Listener.Factory.OnClickFactory.AddToGroupClickFactory;
 import merejy.fr.menuachat3.UI.Listener.OnClickOnCancel;
 import merejy.fr.menuachat3.UI.Listener.OnClickOnComfirm;
 import merejy.fr.menuachat3.UI.adapter.Recycler.RecyclerAdapter_All_Article;
@@ -41,7 +39,7 @@ public class SelectArticleActivity extends AppCompatActivity implements Cancella
         super.onCreate(savedInstanceState);
         ui = DataBindingUtil.setContentView(this,R.layout.activity_select_article);
 
-        recyclerAdapter_all_article = new RecyclerAdapter_All_Article(this,new AddToGroupClickFactory<>(this));
+        recyclerAdapter_all_article = new RecyclerAdapter_All_Article(this,new AddToGroupClickFactory<>(this,new AddArticleToGroupNumberPopupModuleFactory()));
         ui.ListArticle.setLayoutManager(new LinearLayoutManager(this));
         ui.ListArticle.setAdapter(recyclerAdapter_all_article);
         LoadAll_Article loader = new LoadAll_Article(this,recyclerAdapter_all_article);

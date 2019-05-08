@@ -1,4 +1,4 @@
-package merejy.fr.menuachat3.UI.Listener.Factory;
+package merejy.fr.menuachat3.UI.Listener.Factory.OnClickFactory;
 
 import android.app.Activity;
 import android.view.View;

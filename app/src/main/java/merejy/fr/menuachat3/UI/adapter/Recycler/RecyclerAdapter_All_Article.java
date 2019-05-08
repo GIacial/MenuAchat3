@@ -3,26 +3,21 @@ package merejy.fr.menuachat3.UI.adapter.Recycler;
 import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 import merejy.fr.menuachat3.Data.DataObject.ArticleWithCategorie;
-import merejy.fr.menuachat3.Data.DataTask.Load_ArticleCategorie_ByName;
 import merejy.fr.menuachat3.Data.DataTask.LoaderAskerInterface.LoaderAsker_Article;
 import merejy.fr.menuachat3.Data.DataTask.LoaderAskerInterface.LoaderAsker_CategorieArticle;
 import merejy.fr.menuachat3.Data.Entity.Article;
 import merejy.fr.menuachat3.Data.Entity.ArticleCategorie;
 import merejy.fr.menuachat3.Kernel.ColorManager;
 import merejy.fr.menuachat3.R;
-import merejy.fr.menuachat3.UI.Listener.Factory.OnClickFactory;
+import merejy.fr.menuachat3.UI.Listener.Factory.OnClickFactory.OnClickFactory;
 import merejy.fr.menuachat3.databinding.RecyclerArticleAllListeBinding;
 
 public class RecyclerAdapter_All_Article extends RecyclerView.Adapter<RecyclerAdapter_All_Article.ViewHolder> implements LoaderAsker_CategorieArticle , LoaderAsker_Article {
@@ -98,6 +93,9 @@ public class RecyclerAdapter_All_Article extends RecyclerView.Adapter<RecyclerAd
         }
         holder.ui.name.setTextColor(ColorManager.getTextColorForCategorieColorInst(categorie.couleur));
         holder.ui.catName.setTextColor(ColorManager.getTextColorForCategorieColorInst(categorie.couleur));
+        if(!article.poids_fixe){
+            holder.ui.poidsFixe.setVisibility(View.INVISIBLE);
+        }
 
     }
 

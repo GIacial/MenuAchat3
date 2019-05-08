@@ -39,8 +39,8 @@ public class EntierPopup extends DialogFragment {
 
 
 
-    static private final int MIN_NUMBER = 1;
-    private int number = MIN_NUMBER;
+
+    private int number ;
     private EntierNumberPopupModule module = null;
     private PopupQuantiteBinding ui;
 
@@ -49,6 +49,7 @@ public class EntierPopup extends DialogFragment {
         Bundle argumentBundle = getArguments();
         if(argumentBundle != null){
             module = (EntierNumberPopupModule) argumentBundle.getSerializable(KEY_MODULE);
+            number = module.getMinValue();
         }
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
@@ -64,22 +65,22 @@ public class EntierPopup extends DialogFragment {
         ui.buttonMoins.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                number--;
-                if(number < MIN_NUMBER){
-                    number = MIN_NUMBER;
+                number-= module.getPas();
+                if(number < module.getMinValue()){
+                    number = module.getMinValue();
                 }
-                ui.textQuantite.setText(""+number);
+                ui.textQuantite.setText(number + " " + module.getUnit());
             }
         });
         ui.buttonPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                number++;
-                ui.textQuantite.setText(""+number);
+                number+=module.getPas();
+                ui.textQuantite.setText(number + " " + module.getUnit());
             }
         });
         ui.textQuestion.setText(module.getQuestion());
-        ui.textQuantite.setText(""+number);
+        ui.textQuantite.setText(number + " " + module.getUnit());
 
         //les boutons comfirm et annuler
         builder.setPositiveButton(R.string.button_comfirmer, new DialogInterface.OnClickListener() {

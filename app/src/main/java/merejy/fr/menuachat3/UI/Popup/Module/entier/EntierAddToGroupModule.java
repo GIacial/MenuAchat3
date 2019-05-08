@@ -37,4 +37,27 @@ public class EntierAddToGroupModule<T> implements EntierNumberPopupModule {
         return activity.getString(R.string.text_combien_de)+ " " +object.toString()+" "+activity.getString(R.string.text_voulez_vous);
     }
 
+    @Override
+    public int getPas() {
+        return 1;
+    }
+
+    @Override
+    public String getUnit() {
+        return "";
+    }
+
+    @Override
+    public int getMinValue() {
+        return getPas();
+    }
+
+    protected Activity getActivity(){
+        return  activity;
+    }
+
+    protected T getObject(){
+        return object;
+    }
+
 }

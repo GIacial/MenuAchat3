@@ -9,4 +9,10 @@ public interface EntierNumberPopupModule extends Serializable{
     Runnable getMethodOnAnuller();
 
     String getQuestion();
+
+    int getPas();
+
+    String getUnit();
+
+    int getMinValue();
 }

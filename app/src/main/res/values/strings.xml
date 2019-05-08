@@ -25,6 +25,7 @@
     <string name="text_poidsFixe">Poids Fixe</string>
     <string name="text_codeBar">CodeBar</string>
     <string name="text_combien_de">Combien de </string>
+    <string name="text_combien_de_gramme">Combien de gramme de</string>
     <string name="text_voulez_vous"> voulez vous ?</string>
 
     <string name="title_addCategorieArticle">Ajouter une catégorie d\'article</string>
@@ -35,5 +36,6 @@
     <string name="debug_todo">Pas encore fait ^^</string>
     <string name="debug_no_activity_add_article">Impossible de trouver activité pour créé un article</string>
     <string name="debug_unknow_activity">Activité inconnu</string>
+    <string name="img_descrip_poidsFixe">poidsFixe</string>
 
 </resources>

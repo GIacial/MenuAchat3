@@ -30,6 +30,7 @@ public interface ArticleDao {
     Article loadById(int articleId);
 
     @Query("SELECT * FROM ARTICLE WHERE nom = (:articleName)")
+    @Transaction
     List<ArticleWithCategorie> findByName(String articleName);
 
 

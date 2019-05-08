@@ -24,6 +24,8 @@
     <string name="text_plus">+</string>
     <string name="text_poidsFixe">Poids Fixe</string>
     <string name="text_codeBar">CodeBar</string>
+    <string name="text_combien_de">Combien de </string>
+    <string name="text_voulez_vous"> voulez vous ?</string>
 
     <string name="title_addCategorieArticle">Ajouter une catégorie d\'article</string>
     <string name="title_addArticle">Ajouter un article</string>

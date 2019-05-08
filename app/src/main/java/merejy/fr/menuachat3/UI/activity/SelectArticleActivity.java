@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import merejy.fr.menuachat3.Data.DataTask.LoadAll_Article;
 import merejy.fr.menuachat3.Data.DataTask.Load_Article_ByName;
@@ -19,24 +21,27 @@ import merejy.fr.menuachat3.Kernel.MyConstante;
 import merejy.fr.menuachat3.R;
 import merejy.fr.menuachat3.UI.Interface.Cancellable;
 import merejy.fr.menuachat3.UI.Interface.Comfirmable;
+import merejy.fr.menuachat3.UI.Interface.Groupe;
+import merejy.fr.menuachat3.UI.Listener.Factory.AddToGroupClickFactory;
 import merejy.fr.menuachat3.UI.Listener.OnClickOnCancel;
 import merejy.fr.menuachat3.UI.Listener.OnClickOnComfirm;
 import merejy.fr.menuachat3.UI.adapter.Recycler.RecyclerAdapter_All_Article;
 import merejy.fr.menuachat3.databinding.ActivitySelectArticleBinding;
 
-public class SelectArticleActivity extends AppCompatActivity implements Cancellable , Comfirmable{
+public class SelectArticleActivity extends AppCompatActivity implements Cancellable , Comfirmable , Groupe<Article>{
 
 
 
     private ActivitySelectArticleBinding ui;
     private RecyclerAdapter_All_Article recyclerAdapter_all_article;
+    private HashMap<Article,Integer> articlesSelected = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ui = DataBindingUtil.setContentView(this,R.layout.activity_select_article);
 
-        recyclerAdapter_all_article = new RecyclerAdapter_All_Article(this,null);
+        recyclerAdapter_all_article = new RecyclerAdapter_All_Article(this,new AddToGroupClickFactory<>(this));
         ui.ListArticle.setLayoutManager(new LinearLayoutManager(this));
         ui.ListArticle.setAdapter(recyclerAdapter_all_article);
         LoadAll_Article loader = new LoadAll_Article(this,recyclerAdapter_all_article);
@@ -67,6 +72,9 @@ public class SelectArticleActivity extends AppCompatActivity implements Cancella
     @Override
     public void comfirm() {
         Toast.makeText(this,getString(R.string.debug_todo),Toast.LENGTH_SHORT).show();
+        for(Article article : this.articlesSelected.keySet()){
+            Log.d(MyConstante.APP_TAG,"Selection de "+article.nom+" x"+this.articlesSelected.get(article));
+        }
     }
 
     @Override
@@ -86,6 +94,30 @@ public class SelectArticleActivity extends AppCompatActivity implements Cancella
                 break;
             default: Log.d(MyConstante.APP_TAG,getString(R.string.debug_unknow_activity));
 
+        }
+    }
+
+    @Override
+    public void addToGroup(Article object) {
+        this.addToGroup(object,1);
+    }
+
+    @Override
+    public void addToGroup(Article object, int nombre) {
+        if(this.articlesSelected.containsKey(object)){
+            int nb = this.articlesSelected.get(object);
+            if(-nombre >= nb){
+                //supression
+                this.articlesSelected.remove(object);
+            }
+            else{
+                this.articlesSelected.put(object,nb+nombre);
+            }
+        }
+        else{
+            if( nombre > 0){
+                this.articlesSelected.put(object,nombre);
+            }
         }
     }
 }

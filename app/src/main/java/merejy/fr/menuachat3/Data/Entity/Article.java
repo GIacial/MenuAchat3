@@ -36,4 +36,9 @@ public class Article {
         this.cat_id = cat_id;
         this.poids_fixe = poids_fixe;
     }
+
+    @Override
+    public String toString() {
+        return nom;
+    }
 }
